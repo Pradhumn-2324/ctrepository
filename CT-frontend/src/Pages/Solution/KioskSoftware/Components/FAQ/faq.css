@@ -1,0 +1,19 @@
+.answer {
+    display: none;
+    max-height: 0;
+    transition: display 4s ease-in-out; /* Transition effect */
+    transition: max-height 0.4s ease-in-out; 
+}
+
+.answer.open {
+    display: flex;
+    transition: all 4s ease-in-out 4s;
+    justify-content: space-between;
+    height: auto;
+    width: 100%;
+    padding: 20px 20px;
+    
+    max-height: 1000px; /* Set the max-height to a value larger than the content's height */
+    transition: max-height 0.4s ease-in-out; /* Transition effect for max-height */
+
+}

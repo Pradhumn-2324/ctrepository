@@ -1,0 +1,26 @@
+version: "3.8"
+# Telling docker-compose to build the client and server images and run them in containers.
+services:
+  server:
+    # Telling docker-compose to build the client image using the Dockerfile in the server directory.
+    build: ./CT-backend
+    container_name: ctbackend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./CT-backend:/app
+  client:
+    # Telling docker-compose to build the client image using the Dockerfile in the client directory.
+    build: ./CT-frontend
+    # Giving the container a name.
+    container_name: ctfrontend
+    # Mapping the port 3000 on the host machine to the port 3000 on the container.
+    ports:
+      - "3000:3000"
+    # Mapping the client directory on the host machine to the /app directory on the container.
+    volumes:
+      - ./CT-frontend:/app
+    # Allows you to run container in detached mode.
+    stdin_open: true
+    tty: true
+     
